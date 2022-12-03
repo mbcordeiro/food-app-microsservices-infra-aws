@@ -9,7 +9,7 @@ import software.amazon.awscdk.StackProps;
 import software.constructs.Construct;
 
 public class FoodAppVpcStack extends Stack {
-    private Vpc vpc;
+    private final Vpc vpc;
 
     public FoodAppVpcStack(final Construct scope, final String id) {
         this(scope, id, null);
@@ -20,5 +20,9 @@ public class FoodAppVpcStack extends Stack {
         vpc = Vpc.Builder.create(this, "FoodAppVpc")
                 .maxAzs(3)
                 .build();
+    }
+
+    public Vpc getVpc() {
+        return vpc;
     }
 }
